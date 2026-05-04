@@ -9,11 +9,15 @@
   --texto-fundo: rgba(58, 55, 94, 0.3);
 }
 
+* {
+  box-sizing: border-box; /* Garante que padding não quebre o layout */
+}
+
 body {
   background-color: var(--cor-de-fundo);
   color: var(--branco);
   font-family: "Chakra Petch", sans-serif;
-  margin: 0; /* Removendo margens padrão do body */
+  margin: 0;
   padding: 20px;
 }
 
@@ -31,7 +35,7 @@ body {
   text-align: left;
   width: 100%;
   font-size: 32px;
-  margin-bottom: 20px; /* Espaçamento abaixo do título */
+  margin-bottom: 20px;
 }
 
 .titulo-principal span {
@@ -40,11 +44,10 @@ body {
 
 .botoes {
   display: block;
-  width: 100%; /* Garante que a div ocupe o espaço necessário */
+  width: 100%;
 }
 
 .botao {
-  /* CORREÇÃO: Escrita correta da fonte "Chakra" */
   font-family: "Chakra Petch", sans-serif; 
   background-color: var(--botao-inativo);
   color: var(--branco);
@@ -54,19 +57,17 @@ body {
   font-size: 18px;
   align-items: center;
   width: 100%;
-  cursor: pointer; /* Adicionado para mostrar que é clicável */
+  cursor: pointer;
+  border: none; /* Reset inicial */
   border-bottom: 4px solid var(--botao-ativo);
-  border-left: 2px solid var(--botao-ativo);
-  border-right: 2px solid var(--botao-ativo);
-  border-top: none;
-  transition: 0.3s; /* Suaviza a mudança de cor */
+  transition: 0.3s;
 }
 
+/* Arredondamento mobile (primeiro botão) */
 .botao:first-child {
-  border-radius: 20px 20px 0 0; /* Arredondamento mais suave */
+  border-radius: 20px 20px 0 0;
 }
 
-/* Classe de estado Ativo */
 .botao.ativo {
   background-color: var(--botao-ativo);
   border-bottom: 4px solid var(--verde);
@@ -75,7 +76,7 @@ body {
 /* Estilização para Desktop */
 @media screen and (min-width: 768px) {
   .botoes {
-    display: flex; /* Alinha botões lado a lado no PC */
+    display: flex;
   }
 
   .botao:first-child {
@@ -85,4 +86,31 @@ body {
   .botao:last-child {
     border-radius: 0 20px 0 0;
   }
+}
+
+.abas-textos {
+  background-color: var(--texto-fundo);
+  width: 100%;
+  padding: 40px; /* Espaço interno para o conteúdo */
+  border-radius: 0 0 20px 20px;
+}
+
+.aba-conteudo {
+  display: none; /* Esconde por padrão */
+}
+
+.aba-conteudo.ativo {
+  display: block; /* Mostra apenas a que tiver a classe ativo */
+}
+
+.aba-conteudo-titulo-principal {
+  font-size: 28px;
+  text-align: center;
+  margin-top: 0;
+}
+
+.aba-conteudo-titulo-secundario {
+  text-align: center;
+  color: var(--verde);
+  text-transform: uppercase;
 }
