@@ -13,6 +13,8 @@ body {
   background-color: var(--cor-de-fundo);
   color: var(--branco);
   font-family: "Chakra Petch", sans-serif;
+  margin: 0; /* Removendo margens padrão do body */
+  padding: 20px;
 }
 
 .conteudo-principal {
@@ -29,14 +31,21 @@ body {
   text-align: left;
   width: 100%;
   font-size: 32px;
+  margin-bottom: 20px; /* Espaçamento abaixo do título */
 }
 
 .titulo-principal span {
   color: var(--verde);
 }
 
+.botoes {
+  display: block;
+  width: 100%; /* Garante que a div ocupe o espaço necessário */
+}
+
 .botao {
-  font-family: "Crakra Petch", sans-serif;
+  /* CORREÇÃO: Escrita correta da fonte "Chakra" */
+  font-family: "Chakra Petch", sans-serif; 
   background-color: var(--botao-inativo);
   color: var(--branco);
   display: flex;
@@ -45,23 +54,35 @@ body {
   font-size: 18px;
   align-items: center;
   width: 100%;
+  cursor: pointer; /* Adicionado para mostrar que é clicável */
   border-bottom: 4px solid var(--botao-ativo);
   border-left: 2px solid var(--botao-ativo);
   border-right: 2px solid var(--botao-ativo);
   border-top: none;
+  transition: 0.3s; /* Suaviza a mudança de cor */
 }
 
 .botao:first-child {
-  border-radius: 40px 40px 0 0;
+  border-radius: 20px 20px 0 0; /* Arredondamento mais suave */
 }
 
-.botoes {
-  display: block;
+/* Classe de estado Ativo */
+.botao.ativo {
+  background-color: var(--botao-ativo);
+  border-bottom: 4px solid var(--verde);
 }
+
+/* Estilização para Desktop */
 @media screen and (min-width: 768px) {
-  /* Código omitido */
+  .botoes {
+    display: flex; /* Alinha botões lado a lado no PC */
+  }
+
+  .botao:first-child {
+    border-radius: 20px 0 0 0;
+  }
 
   .botao:last-child {
-    border-radius: 0 40px 0 0;
+    border-radius: 0 20px 0 0;
   }
 }
