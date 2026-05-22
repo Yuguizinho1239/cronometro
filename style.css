@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">);
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Chakra+Petch:wght@400;700&display=swap");
 
 :root {
   --cor-de-fundo: #1e1e1e;
@@ -10,7 +10,7 @@
 }
 
 * {
-  box-sizing: border-box; /* Garante que padding não quebre o layout */
+  box-sizing: border-box;
 }
 
 body {
@@ -58,12 +58,11 @@ body {
   align-items: center;
   width: 100%;
   cursor: pointer;
-  border: none; /* Reset inicial */
+  border: none;
   border-bottom: 4px solid var(--botao-ativo);
   transition: 0.3s;
 }
 
-/* Arredondamento mobile (primeiro botão) */
 .botao:first-child {
   border-radius: 20px 20px 0 0;
 }
@@ -91,16 +90,16 @@ body {
 .abas-textos {
   background-color: var(--texto-fundo);
   width: 100%;
-  padding: 40px; /* Espaço interno para o conteúdo */
+  padding: 40px;
   border-radius: 0 0 20px 20px;
 }
 
 .aba-conteudo {
-  display: none; /* Esconde por padrão */
+  display: none;
 }
 
 .aba-conteudo.ativo {
-  display: block; /* Mostra apenas a que tiver a classe ativo */
+  display: block;
 }
 
 .aba-conteudo-titulo-principal {
@@ -109,8 +108,28 @@ body {
   margin-top: 0;
 }
 
+/* --- ALTERAÇÕES DO CONTADOR --- */
+
 .aba-conteudo-titulo-secundario {
   text-align: center;
   color: var(--verde);
   text-transform: uppercase;
+  margin-top: 20px;
+  font-size: 20px; /* Tamanho da frase "Tempo restante" */
+}
+
+.contador-digitos {
+  display: block;        /* Garante que o horário fique em baixo */
+  font-size: 45px;       /* Tamanho bem grande para o tempo */
+  color: var(--branco);  /* Cor azulada do seu tema */
+  margin-top: 15px;      /* Espaço entre a frase e os números */
+  text-transform: none;  /* Remove o caixa alta apenas dos números */
+  font-weight: bold;
+}
+
+/* Responsividade para telas menores não quebrarem o texto grande */
+@media screen and (max-width: 480px) {
+  .contador-digitos {
+    font-size: 24px;
+  }
 }
