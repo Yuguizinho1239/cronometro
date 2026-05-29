@@ -23,7 +23,7 @@ const tempoObjetivo4 = new Date("2024-02-01T00:00:00");
 
 const tempos = [tempoObjetivo1, tempoObjetivo2, tempoObjetivo3, tempoObjetivo4];
 
-// 4. Função de Cálculo modificada para retornar valores numéricos individuais
+// 4. Função de Cálculo (Retorna Array com os 4 tempos ou String se encerrado)
 function calculaTempo(tempoObjetivo) {
   let tempoAtual = new Date();
   let tempoFinal = tempoObjetivo - tempoAtual;
@@ -44,15 +44,25 @@ function calculaTempo(tempoObjetivo) {
   }
 }
 
-// 5. Atualização dos contadores
+// 5. Atualização dos contadores (Lógica de Otimização com Laço For da Aula 9)
 function atualizaCronometro() {
   for (let i = 0; i < contadores.length; i++) {
-    // LINHA COMENTADA CONFORME AULA PARA PRESERVAR A ESTILIZAÇÃO DO HTML
-    // contadores[i].textContent = calculaTempo(tempos[i]);
+    let resultadoCalculo = calculaTempo(tempos[i]);
+
+    // Tratamento para prazos ativos (retornam um Array de 4 posições)
+    if (typeof resultadoCalculo !== "string") {
+      document.getElementById("dias" + i).textContent = resultadoCalculo[0];
+      document.getElementById("horas" + i).textContent = resultadoCalculo[1];
+      document.getElementById("min" + i).textContent = resultadoCalculo[2];
+      document.getElementById("seg" + i).textContent = resultadoCalculo[3];
+    } else {
+      // Tratamento para prazos já encerrados (ex: suas datas de 2023 e 2024)
+      contadores[i].innerHTML = `<p class="prazo-encerrado">Prazo Encerrado</p>`;
+    }
   }
 }
 
-// 6. Inicialização do Cronômetro (REATIVADO CONFORME AULA)
+// 6. Inicialização do Cronômetro
 function comecaCronometro() {
   atualizaCronometro();
   setInterval(atualizaCronometro, 1000);
