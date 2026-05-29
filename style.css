@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Chakra+Petch:wght@400;700&display=swap");
+@import url("https://googleapis.com");
 
 :root {
   --cor-de-fundo: #1e1e1e;
-  --verde: #db480f;
-  --branco: #189ec7;
+  --verde: #db480f; /* Mantida a sua cor padrão da aula */
+  --branco: #189ec7; 
   --botao-ativo: #3a375e;
   --botao-inativo: rgba(58, 55, 94, 0.5);
   --texto-fundo: rgba(58, 55, 94, 0.3);
@@ -72,16 +72,13 @@ body {
   border-bottom: 4px solid var(--verde);
 }
 
-/* Estilização para Desktop */
 @media screen and (min-width: 768px) {
   .botoes {
     display: flex;
   }
-
   .botao:first-child {
     border-radius: 20px 0 0 0;
   }
-
   .botao:last-child {
     border-radius: 0 20px 0 0;
   }
@@ -106,30 +103,37 @@ body {
   font-size: 28px;
   text-align: center;
   margin-top: 0;
+  margin-bottom: 20px;
 }
 
-/* --- ALTERAÇÕES DO CONTADOR --- */
+/* --- ESTILOS ENFANTIZADOS NA AULA --- */
+.contador {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 
-.aba-conteudo-titulo-secundario {
+.contador-digito {
+  padding: 0 16px;
   text-align: center;
-  color: var(--verde);
-  text-transform: uppercase;
-  margin-top: 20px;
-  font-size: 20px; /* Tamanho da frase "Tempo restante" */
+  min-width: 100px;
 }
 
-.contador-digitos {
-  display: block;        /* Garante que o horário fique em baixo */
-  font-size: 45px;       /* Tamanho bem grande para o tempo */
-  color: var(--branco);  /* Cor azulada do seu tema */
-  margin-top: 15px;      /* Espaço entre a frase e os números */
-  text-transform: none;  /* Remove o caixa alta apenas dos números */
+.contador-digito-numero {
+  font-size: 80px;
+  margin: 0;
   font-weight: bold;
 }
 
-/* Responsividade para telas menores não quebrarem o texto grande */
-@media screen and (max-width: 480px) {
-  .contador-digitos {
-    font-size: 24px;
-  }
+.contador-digito-texto {
+  color: var(--verde);
+  font-size: 20px;
+  margin: 0;
+}
+
+.prazo-encerrado {
+  font-size: 28px;
+  text-align: center;
+  color: var(--verde);
+  width: 100%;
 }
