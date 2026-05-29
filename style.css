@@ -2,7 +2,7 @@
 
 :root {
   --cor-de-fundo: #1e1e1e;
-  --verde: #db480f; /* Mantida a sua cor padrão da aula */
+  --verde: #db480f; 
   --branco: #189ec7; 
   --botao-ativo: #3a375e;
   --botao-inativo: rgba(58, 55, 94, 0.5);
@@ -103,10 +103,18 @@ body {
   font-size: 28px;
   text-align: center;
   margin-top: 0;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
-/* --- ESTILOS ENFANTIZADOS NA AULA --- */
+.aba-conteudo-titulo-secundario {
+  text-align: center;
+  color: var(--verde);
+  text-transform: uppercase;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
 .contador {
   display: flex;
   justify-content: center;

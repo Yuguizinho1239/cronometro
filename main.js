@@ -15,15 +15,15 @@ for (let i = 0; i < botoes.length; i++) {
   };
 }
 
-// 3. Datas Objetivos
-const tempos = [
-  new Date(new Date().getTime() + 2 * 365 * 24 * 60 * 60 * 1000), 
-  new Date("2026-12-31T23:59:59"), 
-  new Date("2027-12-31T23:59:59"), 
-  new Date("2028-12-31T23:59:59")  
-];
+// 3. Datas Objetivos (Seus tempos originais mantidos)
+const tempoObjetivo1 = new Date(new Date().getTime() + 2 * 365 * 24 * 60 * 60 * 1000); // 2 anos a partir de agora
+const tempoObjetivo2 = new Date("2023-12-05T00:00:00");
+const tempoObjetivo3 = new Date("2023-12-30T00:00:00");
+const tempoObjetivo4 = new Date("2024-02-01T00:00:00");
 
-// 4. Função de Cálculo estruturada conforme o protótipo da aula
+const tempos = [tempoObjetivo1, tempoObjetivo2, tempoObjetivo3, tempoObjetivo4];
+
+// 4. Função de Cálculo modificada para retornar valores numéricos individuais
 function calculaTempo(tempoObjetivo) {
   let tempoAtual = new Date();
   let tempoFinal = tempoObjetivo - tempoAtual;
@@ -38,43 +38,24 @@ function calculaTempo(tempoObjetivo) {
     minutos %= 60;
     horas %= 24;
 
-    // Esta estrutura gera dinamicamente os blocos exigidos no protótipo
-    return `
-      <div class="contador-digito">
-        <p class="contador-digito-numero">${dias}</p>
-        <p class="contador-digito-texto">dias</p>
-      </div>
-      <div class="contador-digito">
-        <p class="contador-digito-numero">${horas}</p>
-        <p class="contador-digito-texto">horas</p>
-      </div>
-      <div class="contador-digito">
-        <p class="contador-digito-numero">${minutos}</p>
-        <p class="contador-digito-texto">min</p>
-      </div>
-      <div class="contador-digito">
-        <p class="contador-digito-numero">${segundos}</p>
-        <p class="contador-digito-texto">seg</p>
-      </div>
-    `;
+    return [dias, horas, minutos, segundos];
   } else {
-    return `<p class="prazo-encerrado">Prazo Encerrado</p>`;
+    return "Prazo Encerrado";
   }
 }
 
 // 5. Atualização dos contadores
-function atualizaCronometros() {
+function atualizaCronometro() {
   for (let i = 0; i < contadores.length; i++) {
-    if (tempos[i] && contadores[i]) {
-      contadores[i].innerHTML = calculaTempo(tempos[i]);
-    }
+    // LINHA COMENTADA CONFORME AULA PARA PRESERVAR A ESTILIZAÇÃO DO HTML
+    // contadores[i].textContent = calculaTempo(tempos[i]);
   }
 }
 
-// 6. Inicialização
-function comeceCronometro() {
-  atualizaCronometros();
-  setInterval(atualizaCronometros, 1000);
+// 6. Inicialização do Cronômetro (REATIVADO CONFORME AULA)
+function comecaCronometro() {
+  atualizaCronometro();
+  setInterval(atualizaCronometro, 1000);
 }
 
-comeceCronometro();
+comecaCronometro();
